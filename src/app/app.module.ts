@@ -41,7 +41,8 @@ import { AgmCoreModule } from '@agm/core';
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 import { SexoPipe } from './pipes/sexo.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatIconModule} from '@angular/material/icon';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -80,7 +81,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
     }),
     BrowserAnimationsModule,
-    MatSliderModule,
+    MatTabsModule,MatIconModule,
     NgbModule
   ],
   providers: [JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService],
