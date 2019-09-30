@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faTools, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -11,6 +12,8 @@ export class PrincipalComponent implements OnInit {
     isFirstOpen: true,
     isFirstDisabled: false
   };
+  faTools = faTools;
+  faUsers = faUsers;
   constructor() {  }
 
   ngOnInit() {

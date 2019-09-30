@@ -44,6 +44,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -82,7 +84,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     }),
     BrowserAnimationsModule,
     MatTabsModule,MatIconModule,
-    NgbModule
+    NgbModule,
+    AngularFontAwesomeModule,FontAwesomeModule
   ],
   providers: [JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService],
   bootstrap: [AppComponent]
