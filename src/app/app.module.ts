@@ -43,9 +43,12 @@ import { SexoPipe } from './pipes/sexo.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PierdaPapelTijeraComponent } from './componentes/pierda-papel-tijera/pierda-papel-tijera.component';
 
 
 @NgModule({
@@ -72,7 +75,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MapaDeGoogleComponent,
     JugadoresListadoComponent,
     InputJugadoresComponent,
-    SexoPipe
+    SexoPipe,
+    PierdaPapelTijeraComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +87,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
     }),
     BrowserAnimationsModule,
-    MatTabsModule,MatIconModule,
+    MatTabsModule,MatIconModule,MatCardModule,MatButtonModule,
     NgbModule,
     AngularFontAwesomeModule,FontAwesomeModule
   ],

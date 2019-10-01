@@ -20,6 +20,7 @@ import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component'
 import { ListadoDePaisesComponent } from './componentes/listado-de-paises/listado-de-paises.component'
 import { MapaDeGoogleComponent } from './componentes/mapa-de-google/mapa-de-google.component'
 import { JugadoresListadoComponent } from './componentes/jugadores-listado/jugadores-listado.component';
+import { PierdaPapelTijeraComponent } from './componentes/pierda-papel-tijera/pierda-papel-tijera.component';
 
 
 
@@ -41,7 +42,8 @@ const routes: Routes = [
        {path: 'Adivina' , component: AdivinaElNumeroComponent},
         {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
         {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
-        {path: 'Agilidad' , component: AgilidadAritmeticaComponent}]
+        {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
+        {path: 'PPT' , component: PierdaPapelTijeraComponent}]
   },
   {path: '**' , component: ErrorComponent},
   {path: 'error' , component: ErrorComponent}];

@@ -1,0 +1,25 @@
+.custom-row{
+    margin: 20px;
+}
+
+.imagen-seleccionable{
+    border: 20px solid black;
+    cursor: pointer;
+    
+}
+
+.imagen-seleccionable:hover{
+    border: 10px solid rgb(82, 79, 78);
+    opacity: .5; 
+}
+
+.imagen-selecionada{
+    border: 20px solid blue;
+}
+
+.imagen-ganadora{
+    border: 20px solid green;
+}
+.imagen-perdedora{
+    border: 20px solid red;
+}
