@@ -23,6 +23,7 @@ import { JugadoresListadoComponent } from './componentes/jugadores-listado/jugad
 import { PierdaPapelTijeraComponent } from './componentes/pierda-papel-tijera/pierda-papel-tijera.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
 import { AnagramaComponent } from './componentes/anagrama/anagrama.component';
+import { MemotestComponent } from './componentes/memotest/memotest.component';
 
 
 
@@ -47,7 +48,8 @@ const routes: Routes = [
         {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
         {path: 'PPT' , component: PierdaPapelTijeraComponent},
         {path: 'TATETI' , component: TatetiComponent},
-        {path: 'Anagrama' , component: AnagramaComponent}]
+        {path: 'Anagrama' , component: AnagramaComponent},
+        {path: 'Memotest' , component: MemotestComponent}]
   },
   {path: '**' , component: ErrorComponent},
   {path: 'error' , component: ErrorComponent}];

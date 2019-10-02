@@ -1,0 +1,16 @@
+table{
+    border: 5px solid gray;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+}
+
+td{
+border:  2px solid black;
+width: 5em;
+height: 5em;
+}
+
+.icon{
+    font-size: 5em;
+}

@@ -50,6 +50,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PierdaPapelTijeraComponent } from './componentes/pierda-papel-tijera/pierda-papel-tijera.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
+import { MemotestComponent } from './componentes/memotest/memotest.component';
 
 
 @NgModule({
@@ -78,7 +79,8 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
     InputJugadoresComponent,
     SexoPipe,
     PierdaPapelTijeraComponent,
-    TatetiComponent
+    TatetiComponent,
+    MemotestComponent
   ],
   imports: [
     BrowserModule,

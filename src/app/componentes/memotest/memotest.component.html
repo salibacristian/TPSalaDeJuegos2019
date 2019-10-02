@@ -1,0 +1,16 @@
+<table>
+    <tr *ngFor="let fila of grilla">
+        <td *ngFor="let columna of fila" (click)="elegirCelda(columna)">
+            <fa-icon class="icon" [icon]="faCat" *ngIf="columna.iconSrc == 'faCat' && columna.seleccionada"></fa-icon>
+            <fa-icon class="icon" [icon]="faCrow" *ngIf="columna.iconSrc == 'faCrow' && columna.seleccionada"></fa-icon>
+            <fa-icon class="icon" [icon]="faDog" *ngIf="columna.iconSrc == 'faDog' && columna.seleccionada"></fa-icon>
+            <fa-icon class="icon" [icon]="faFish" *ngIf="columna.iconSrc == 'faFish' && columna.seleccionada"></fa-icon>
+            <fa-icon class="icon" [icon]="faHorseHead" *ngIf="columna.iconSrc == 'faHorseHead' && columna.seleccionada"></fa-icon>
+            <fa-icon class="icon" [icon]="faSpider" *ngIf="columna.iconSrc == 'faSpider' && columna.seleccionada"></fa-icon>
+            <fa-icon class="icon" [icon]="faHippo" *ngIf="columna.iconSrc == 'faHippo' && columna.seleccionada"></fa-icon>
+            <fa-icon class="icon" [icon]="faDragon" *ngIf="columna.iconSrc == 'faDragon' && columna.seleccionada"></fa-icon>
+            <fa-icon class="icon" [icon]="faCircle"  *ngIf="!columna.seleccionada"></fa-icon>
+            
+        </td>
+    </tr>
+</table>
