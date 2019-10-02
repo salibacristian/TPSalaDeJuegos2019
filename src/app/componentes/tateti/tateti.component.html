@@ -1,0 +1,9 @@
+<table class="tabla">
+    <tr *ngFor="let fila of grilla; let i = index" [attr.data-index]="i" [ngClass]="{'fila': i > 0}">
+        <td *ngFor="let columna of fila; let j = index" [attr.data-index]="j" [ngClass]="{'columna': j > 0}"
+            (click)="elegirCelda(i,j)">
+            <fa-icon class="icon-times" [icon]="faTimes" *ngIf="grilla[i][j] == 1"></fa-icon>
+            <fa-icon class="icon-circle" [icon]="faCircleNotch" *ngIf="grilla[i][j] == 0"></fa-icon>
+        </td>
+    </tr>
+</table>
