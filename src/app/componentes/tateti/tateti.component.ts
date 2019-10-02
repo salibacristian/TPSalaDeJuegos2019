@@ -22,6 +22,7 @@ export class TatetiComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.juegaLaMaquina();
   }
 
   intentarGanar(bando) {
@@ -161,9 +162,9 @@ export class TatetiComponent implements OnInit {
         else if (this.grilla[0][2] == null)
           this.grilla[0][2] = 0;
         else if (this.grilla[2][0] == null)
-          this.grilla[1][1] = 0;
+          this.grilla[2][0] = 0;
         else if (this.grilla[2][2] == null)
-          this.grilla[1][1] = 0;
+          this.grilla[2][2] = 0;
         else {
           for (let i = 0; i < this.grilla.length; i++) {
             for (let j = 0; j < this.grilla[i].length; j++) {
