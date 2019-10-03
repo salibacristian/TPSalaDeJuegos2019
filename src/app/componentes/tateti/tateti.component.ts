@@ -22,7 +22,7 @@ export class TatetiComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.juegaLaMaquina();
+    // this.juegaLaMaquina();
   }
 
   intentarGanar(bando) {
