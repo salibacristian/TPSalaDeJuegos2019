@@ -9,18 +9,20 @@ firebase.initializeApp(firebaseConfig);
 import "firebase/auth";
 import "firebase/firestore";
 
+ import { JwtHelper } from "angular2-jwt";
+
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
 
-  user = null;
   constructor() { }
 
   isAuthenticated(){
+    let jwtHelper: JwtHelper = new JwtHelper();
+    let token = localStorage.getItem("token");
+    return token && !jwtHelper.isTokenExpired(token)
 
-//TODO: preguntar por el token https://github.com/auth0/angular2-jwt
-    return this.user? true:false;
   }
 
   // setUser(user){
@@ -54,7 +56,7 @@ export class FirebaseService {
       }
       console.log(error);
     });
-  }//COMO MIERDA SE SI ME DIO BIEN?
+  }
 
     logout(){
     firebase.auth().signOut().then(function() {

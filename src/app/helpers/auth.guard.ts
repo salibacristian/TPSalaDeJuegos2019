@@ -14,13 +14,13 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      // if(this.firebaseService.isAuthenticated()){
-      //   return true;
-      // }
-      // else{
+      if(this.firebaseService.isAuthenticated()){
+        return true;
+      }
+      else{
          this.router.navigate(['Login']);
          return false;
-      // }
+       }
   }
   canActivateChild(
     next: ActivatedRouteSnapshot,
