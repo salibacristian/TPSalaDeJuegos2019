@@ -1,0 +1,9 @@
+*usuarios
+-login/logout/register firebase auth
+-jwt
+
+*resultados
+
+*mejoras funcionales
+
+*estetica
