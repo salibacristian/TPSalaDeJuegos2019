@@ -3,6 +3,9 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import {Subscription} from "rxjs";
 import {TimerObservable} from "rxjs/observable/TimerObservable";
+
+import {FirebaseService} from "../../servicios/firebase.service";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -22,7 +25,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    private firebaseService: FirebaseService) {
       this.progreso=0;
       this.ProgresoDeAncho="0%";
 
@@ -32,10 +36,13 @@ export class LoginComponent implements OnInit {
   }
 
   Entrar() {
-    if (this.usuario === 'admin' && this.clave === 'admin') {
-      this.router.navigate(['/Principal']);
-    }
+    // if (this.usuario === 'admin' && this.clave === 'admin') {
+    //   this.router.navigate(['/Principal']);
+    // }
+    this.firebaseService.login(this.usuario, this.clave);
+
   }
+
   MoverBarraDeProgreso() {
     
     this.logeando=false;

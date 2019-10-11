@@ -24,17 +24,17 @@ import { PierdaPapelTijeraComponent } from './componentes/pierda-papel-tijera/pi
 import { TatetiComponent } from './componentes/tateti/tateti.component';
 import { AnagramaComponent } from './componentes/anagrama/anagrama.component';
 import { MemotestComponent } from './componentes/memotest/memotest.component';
-
+import {AuthGuard} from './helpers/auth.guard';
 
 
 const routes: Routes = [
   {path: 'Jugadores' , component: JugadoresListadoComponent},
-  {path: '' , component: PrincipalComponent},
+  { path: '', redirectTo: 'Principal', pathMatch: 'full' },
   {path: 'Login' , component: LoginComponent},
   {path: 'Mapa' , component: MapaDeGoogleComponent},
   {path: 'QuienSoy' , component: QuienSoyComponent},
   {path: 'Registro' , component: RegistroComponent},
-  {path: 'Principal' , component: PrincipalComponent},
+  {path: 'Principal' , component: PrincipalComponent, canActivate: [AuthGuard]},
   {path: 'Listado' , component: ListadoComponent},
   {path: 'Paises' , component: ListadoDePaisesComponent},
   

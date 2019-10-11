@@ -52,6 +52,11 @@ import { PierdaPapelTijeraComponent } from './componentes/pierda-papel-tijera/pi
 import { TatetiComponent } from './componentes/tateti/tateti.component';
 import { MemotestComponent } from './componentes/memotest/memotest.component';
 
+import { AngularFireModule } from '@angular/fire';
+import {firebaseConfig} from "../environments/environment";
+// import * as firebase from 'firebase/app';
+
+
 
 @NgModule({
   declarations: [
@@ -84,6 +89,7 @@ import { MemotestComponent } from './componentes/memotest/memotest.component';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     AppRoutingModule,
     FormsModule,
     HttpModule,
