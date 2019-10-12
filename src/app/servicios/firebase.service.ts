@@ -21,7 +21,7 @@ export class FirebaseService {
   isAuthenticated(){
     let jwtHelper: JwtHelper = new JwtHelper();
     let token = localStorage.getItem("token");
-    return token && !jwtHelper.isTokenExpired(token)
+    return token && !jwtHelper.isTokenExpired(token);
 
   }
 
@@ -59,11 +59,7 @@ export class FirebaseService {
   }
 
     logout(){
-    firebase.auth().signOut().then(function() {
-      // Sign-out successful.
-    }).catch(function(error) {
-      // An error happened.
-    });
+      localStorage.removeItem('token');
   }
 
 }
