@@ -10,11 +10,12 @@ import {FirebaseService} from "../../servicios/firebase.service";
 export class CabeceraComponent implements OnInit {
   faSignOutAlt = faSignOutAlt;
   faUser = faUser;
-  user = { userName: 'Cristian' }
+  userName = '';
   constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit() {
     //obtener el nombre de usuario
+    this.userName = this.firebaseService.getUserName();
   }
   logout(){
     this.firebaseService.logout();

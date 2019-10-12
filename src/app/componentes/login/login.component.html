@@ -9,12 +9,12 @@
         <input type="text" placeholder="Usuario"  [(ngModel)]="usuario"  name="uname" required>
         <label><b>Clave</b></label>
         <input type="password" placeholder="Clave"  [(ngModel)]="clave" name="psw" required>            
-        <button *ngIf="logeando"  (click)="Entrar()" >Ingresar</button> 
       </div>
       <div class="container" style="background-color:#f1f1f1">
-        <button type="button" class="cancelbtn">Cancelar</button>
-        <button type="button" class="aceptbtn" routerLink="/Registro" >Registrarse</button>
+        <button (click)="Entrar()" >Ingresar</button> 
+        <button type="button" >Cancelar</button>
       </div>     
+      <a  routerLink="/Registro" >Registrarse</a>
     </form>
   </div>
 </div>

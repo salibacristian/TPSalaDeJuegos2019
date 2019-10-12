@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 // Firebase App (the core Firebase SDK) is always required and must be listed first
 import * as firebase from "firebase/app";
 import {firebaseConfig} from "../../environments/environment";
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 firebase.initializeApp(firebaseConfig);
 
@@ -16,33 +17,57 @@ import "firebase/firestore";
 })
 export class FirebaseService {
 
-  constructor() { }
+  jwtHelper: JwtHelper = new JwtHelper();
 
-  isAuthenticated(){
-    let jwtHelper: JwtHelper = new JwtHelper();
+  constructor(private router: Router) { }
+
+  isAuthenticated(){    
     let token = localStorage.getItem("token");
-    return token && !jwtHelper.isTokenExpired(token);
+    return token && !this.jwtHelper.isTokenExpired(token);
 
   }
 
-  // setUser(user){
-  //   var body = {cliente : user};
-  //   return this.http.post('http://192.168.2.85:3003/clientes',body);
-  // }
+  getUserName(){
+    let token = localStorage.getItem("token");
+    var u = this.jwtHelper.decodeToken(token);
+    if(u)
+      return u.email;
+    else return '';
+   
+  }
 
-  // testGet(){
-  //   return this.http.get('http://192.168.2.85:3003/clientes');
-  // }
+  register(user, pass){
+    var router = this.router;
+    firebase.auth().createUserWithEmailAndPassword(user, pass)
+    .then(function(res){
+      console.log(res);
+      res.user.getIdToken()
+      .then(function(token){
+        localStorage.setItem('token', token);
+        router.navigate(['/']);
+      });
+    })    
+    .catch(function(error) {   
+      var errorCode = error.code;
+      var errorMessage = error.message;      
+      if (errorCode == 'auth/weak-password') {
+        alert('The password is too weak.');
+      } else {
+        alert(errorMessage);
+      }
+      console.log(error);
+    });
+  }
 
   login(user, pass){
-    // var body = {cliente : user};
-    // return this.http.post('http://192.168.2.85:3003/login',body);
+    var router = this.router;
     firebase.auth().signInWithEmailAndPassword(user, pass)
     .then(function(res) {
       console.log(res); 
       res.user.getIdToken()
       .then(function(token){
         localStorage.setItem('token', token);
+        router.navigate(['/']);
       });
     
   })
