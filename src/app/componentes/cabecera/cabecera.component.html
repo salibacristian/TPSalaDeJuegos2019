@@ -1,23 +1,27 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Sala de Juegos</a>
-  <button class="navbar-toggler navbar-toggler-right" type="button" aria-controls="appNavigation" aria-expanded="!isCollapsed" aria-label="Toggle navigation" (click)="toggleMenu()">
+  <button class="navbar-toggler navbar-toggler-right" type="button" aria-controls="appNavigation"
+    aria-expanded="!isCollapsed" aria-label="Toggle navigation" (click)="toggleMenu()">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="appNavigation" [ngbCollapse]="isCollapsed">
     <div class="navbar-nav mr-auto">
-      <a class="nav-item nav-link" routerLink="" routerLinkActive="active">Inicio</a>  
-      <div class="nav-item dropdown" ngbDropdown >
+      <a class="nav-item nav-link" routerLink="" routerLinkActive="active">Inicio</a>
+      <div class="nav-item dropdown" ngbDropdown>
         <a class="nav-link dropdown-toggle" id="dropdownSede" ngbDropdownToggle>
-           <fa-icon class="icon" [icon]="faUser"></fa-icon>
-          {{user ? user.nombre : ''}} 
+          <fa-icon class="icon" [icon]="faUser"></fa-icon>
+          <div *ngIf="!loading; else loadingTemplate">{{user ? user.nombre : ''}} </div>
+          <ng-template #loadingTemplate>
+            <mat-spinner [diameter]="20"></mat-spinner>
+          </ng-template>
         </a>
         <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownSede">
           <a class="dropdown-item" routerLink="/Estadisticas">Estadisticas</a>
         </div>
       </div>
-      <a (click)="logout()" class="nav-item nav-link" routerLink="/Login" >
-          <fa-icon class="icon" [icon]="faSignOutAlt"></fa-icon>
+      <a (click)="logout()" class="nav-item nav-link" routerLink="/Login">
+        <fa-icon class="icon" [icon]="faSignOutAlt"></fa-icon>
         Cerrar Sesion
       </a>
     </div>

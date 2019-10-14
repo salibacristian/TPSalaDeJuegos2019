@@ -14,6 +14,7 @@ export class CabeceraComponent implements OnInit {
   faSignOutAlt = faSignOutAlt;
   faUser = faUser;
   user = null;
+  loading = true;
   jwtHelper: JwtHelper = new JwtHelper();
 
   constructor(private firebaseService: FirebaseService) { }
@@ -30,6 +31,7 @@ export class CabeceraComponent implements OnInit {
     let activeRef = await usrRef.where('id', '==', uid).get();
     for (let doc of activeRef.docs) {
       this.user = doc.data();
+      this.loading = false;
     }
   }
 

@@ -34,6 +34,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -80,7 +81,7 @@ import {firebaseConfig} from "../environments/environment";
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
     }),
     BrowserAnimationsModule,
-    MatTabsModule,MatIconModule,MatCardModule,MatButtonModule,
+    MatTabsModule,MatIconModule,MatCardModule,MatButtonModule,MatProgressSpinnerModule,
     NgbModule,
     AngularFontAwesomeModule,FontAwesomeModule
   ],
