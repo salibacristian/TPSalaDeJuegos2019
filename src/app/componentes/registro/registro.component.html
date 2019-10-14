@@ -2,8 +2,10 @@
   
         <label><b>Email</b></label>
         <input type="email" [(ngModel)] = "user.email"  placeholder="Ingresa tu correo" name="email" required>
+        <label><b>Nombre</b></label>
+        <input type="text" [(ngModel)] = "user.nombre"  placeholder="Ingresa tu nombre" name="name" required>
         <label><b>Clave</b></label>
-        <input type="password" [(ngModel)] = "user.password" placeholder="Aca la clave" name="psw" required>
+        <input type="password" [(ngModel)] = "user.clave" placeholder="Aca la clave" name="psw" required>
         <button type="button">Cancelar</button>
         <button (click) = "Register()">Registrarme</button>
 

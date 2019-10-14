@@ -1,5 +1,6 @@
 
 import { Component, OnInit , Input, EventEmitter} from '@angular/core';
+import {FirebaseService} from "../../servicios/firebase.service";
 
 @Component({
   selector: 'app-listado-de-resultados',
@@ -7,15 +8,13 @@ import { Component, OnInit , Input, EventEmitter} from '@angular/core';
   styleUrls: ['./listado-de-resultados.component.css']
 })
 export class ListadoDeResultadosComponent implements OnInit {
- @Input()
- listado: Array<any>;
 
-
-  constructor() {
+  constructor(private firebaseService: FirebaseService) {
    }
 
   ngOnInit() {
-
+    //poner un loading e ir a buscar los resultados
+    this.firebaseService.getUsers();
   }
 
 }

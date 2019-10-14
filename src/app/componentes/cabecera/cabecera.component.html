@@ -10,7 +10,7 @@
       <div class="nav-item dropdown" ngbDropdown >
         <a class="nav-link dropdown-toggle" id="dropdownSede" ngbDropdownToggle>
            <fa-icon class="icon" [icon]="faUser"></fa-icon>
-          {{userName}}
+          {{user ? user.nombre : ''}} 
         </a>
         <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownSede">
           <a class="dropdown-item" routerLink="/Estadisticas">Estadisticas</a>
