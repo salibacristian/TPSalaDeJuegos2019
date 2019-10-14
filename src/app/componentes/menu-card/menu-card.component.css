@@ -6,8 +6,8 @@
    height: 100%;
     margin: 10px;
     padding-bottom: 10px;
-    float: left;
-  background-color: #DEF3A6;
+    /* float: left; */
+  background-color:rgb(115, 142, 216);
     text-align: center;
 }
 
@@ -17,41 +17,5 @@ img {
     width: 200px;
     height: 200px;
 }/* Add some padding inside the card container */
-.container {
-    padding: 2px 16px;
-}
 
 
-.button{
-    margin-left: 1px;
-    display: inline-block;
-    width: 90%;
-    padding: 5px 15px;
-    font-size: 24px;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-
-    border: none;
-    outline: 0;
- 
-    padding: 8px;
-    color: white;
-   /* background-color: #000;*/
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  .button:hover {background-color: #3e8e41}
-  
-  .button:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-  }
