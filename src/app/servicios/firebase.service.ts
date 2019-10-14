@@ -32,20 +32,6 @@ export class FirebaseService {
 
   }
 
-
-  //   async getUser() {
-  //     let usrRef = db.collection('usuarios')
-  //     // let activeRef = await usrRef.where('active', '==', true).select().get();
-  //     let activeRef = await usrRef.where("id", "==", this.user.uid).get();
-  //     for (let user of activeRef.docs) {
-  //         console.log(user.id);
-  //         let tasksRef = await usrRef.doc(user.id).collection('usuarios').get();
-  //         for(let task of tasksRef.docs) {
-  //             console.log(task.id, task.data())
-  //         } 
-  //     }
-  // }
-
   async getUser() {
     let token = localStorage.getItem('token');
     let userData = this.jwtHelper.decodeToken(token);
@@ -116,6 +102,7 @@ export class FirebaseService {
     var db = firebase.firestore();
     db.collection("usuarios").add({
       nombre: user.nombre,
+      email: user.email,
       id: user.id
     })
       .then(function (docRef) {
@@ -126,12 +113,21 @@ export class FirebaseService {
       });
   }
 
-  getUsers() {
-    db.collection("usuarios").get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-      });
-    });
+  // getUsers() {
+  //   db.collection("usuarios").get().then((querySnapshot) => {
+  //     querySnapshot.forEach((doc) => {
+  //       console.log(`${doc.id} => ${doc.data()}`);
+  //     });
+  //   });
+  // }
+
+  async getUsers() {
+    // return await db.collection("usuarios").get();
+    let usrsRef = await db.collection('usuarios').get();
+    return usrsRef;
+    // for(let u of usrsRef.docs) {
+    //     console.log(u.id, u.data())
+    // } 
   }
 
 }

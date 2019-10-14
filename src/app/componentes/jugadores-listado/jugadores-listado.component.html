@@ -11,17 +11,13 @@
   <thead>
     <tr>
       <th>usuario</th>
-      <th>cuit</th>
-      <th>sexo</th>
-      <th>gano</th>
+      <th>email</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let jugador of listado" >
-      <td>{{jugador.usuario}} </td>
-      <td>{{jugador.cuit}} </td> 
-      <td>{{jugador.sexo | sexo| uppercase}} </td> 
-      <td>{{jugador.gano}} </td> 
+      <td>{{jugador.nombre}} </td>
+      <td>{{jugador.email}} </td> 
       
     </tr>
    

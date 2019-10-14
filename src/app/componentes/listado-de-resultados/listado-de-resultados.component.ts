@@ -14,7 +14,7 @@ export class ListadoDeResultadosComponent implements OnInit {
 
   ngOnInit() {
     //poner un loading e ir a buscar los resultados
-    this.firebaseService.getUsers();
+    // this.firebaseService.getUsers();
   }
 
 }
