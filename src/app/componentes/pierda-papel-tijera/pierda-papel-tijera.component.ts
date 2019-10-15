@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../../servicios/firebase.service';
+
 
 @Component({
   selector: 'app-pierda-papel-tijera',
@@ -13,16 +15,26 @@ export class PierdaPapelTijeraComponent implements OnInit {
   ];
   eleccion = null;
   eleccionMaquina = null;
+  playerWins = 0;
+  cpuWins = 0;
+  gameOver = false;
   results = [
     [null, 0, 1],
     [1, null, 0],
     [0, 1, null]
   ];
   resultado = null;
+  alert = {message:'',type:''};
 
-  constructor() { }
+  constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit() {
+    this.eleccion = null;
+    this.eleccionMaquina = null;
+    this.playerWins = 0;
+    this.cpuWins = 0;
+    this.gameOver = false;
+    this.resultado = null;
   }
 
   elegir(opcion) {
@@ -35,7 +47,23 @@ export class PierdaPapelTijeraComponent implements OnInit {
     this.eleccionMaquina = this.opciones[random - 1];
 
     this.resultado = this.results[this.eleccion.valor - 1][random - 1];
+    if (this.resultado) this.playerWins++; 
+    else if(this.resultado === 0) this.cpuWins++;
 
+    if(this.playerWins === 3){
+      this.alert.message = 'HAS GANADO! FELICITACIONES!';
+      this.alert.type = 'success';
+      this.gameOver = true;
+      //guardar resultado
+      this.firebaseService.saveResult('PPT', true);
+    }
+    else if(this.cpuWins === 3){
+      this.alert.message = 'HAS PERDIDO ESTA VEZ';
+      this.alert.type = 'danger';
+      this.gameOver = true;
+       //guardar resultado
+       this.firebaseService.saveResult('PPT', false);
+    }
   }
 
   estaSeleccionada(opcion) {
@@ -57,5 +85,4 @@ export class PierdaPapelTijeraComponent implements OnInit {
     }
     return rv;
   }
-
 }

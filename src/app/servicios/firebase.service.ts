@@ -25,23 +25,14 @@ export class FirebaseService {
 
   constructor(private router: Router) { }
 
-
   isAuthenticated() {
     let token = localStorage.getItem("token");
     return token && !this.jwtHelper.isTokenExpired(token);
 
   }
 
-  async getUser() {
-    let token = localStorage.getItem('token');
-    let userData = this.jwtHelper.decodeToken(token);
-    var db = firebase.firestore();
-    let usrRef = db.collection('usuarios')
-    // let activeRef = await usrRef.where('id', '==', id).select().get();
-    let activeRef = await usrRef.where('email', '==', userData.email).get();
-    for (let user of activeRef.docs) {
-      console.log(user);
-    }
+  async getCurrentUser() {
+
   }
 
 
@@ -113,13 +104,35 @@ export class FirebaseService {
       });
   }
 
-  // getUsers() {
-  //   db.collection("usuarios").get().then((querySnapshot) => {
-  //     querySnapshot.forEach((doc) => {
-  //       console.log(`${doc.id} => ${doc.data()}`);
-  //     });
-  //   });
-  // }
+  async saveResult(juego, gano) {
+    firebase.auth().onAuthStateChanged(async user => {
+      var db = firebase.firestore();
+      let resultados = db.collection('resultados')
+      let activeRef = await resultados
+        .where('usuarioId', '==', user.uid)
+        .where('juego', '==', juego)
+        .get();
+
+      if (activeRef.empty) {
+        //add
+        db.collection("resultados").add({
+          usuarioId: user.uid,
+          juego: juego,
+          victorias: gano ? 1 : 0,
+          derrotas: gano ? 0 : 1
+        });
+      }
+      else {
+        //update
+        activeRef.docs.forEach(function (doc) {
+          let victorias = doc.data().victorias + (gano ? 1 : 0);
+          let derrotas = doc.data().derrotas + (gano ? 0 : 1);
+          db.collection("resultados").doc(doc.id)
+            .update({ victorias: victorias, derrotas: derrotas });
+        });
+      }
+    });
+  }
 
   async getUsers() {
     // return await db.collection("usuarios").get();

@@ -82,7 +82,7 @@ import {firebaseConfig} from "../environments/environment";
     }),
     BrowserAnimationsModule,
     MatTabsModule,MatIconModule,MatCardModule,MatButtonModule,MatProgressSpinnerModule,
-    NgbModule,
+    NgbModule, 
     AngularFontAwesomeModule,FontAwesomeModule
   ],
   providers: [],
