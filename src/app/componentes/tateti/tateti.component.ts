@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faCircleNotch, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FirebaseService } from '../../servicios/firebase.service';
+
 
 @Component({
   selector: 'app-tateti',
@@ -10,7 +12,8 @@ export class TatetiComponent implements OnInit {
 
   faCircleNotch = faCircleNotch;
   faTimes = faTimes;
-
+  alert = {message:'',type:''};
+  gameOver = false;
 
   grilla = [
     [null, null, null],
@@ -19,10 +22,16 @@ export class TatetiComponent implements OnInit {
   ];
 
 
-  constructor() { }
+  constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit() {
-    // this.juegaLaMaquina();
+    this.gameOver = false;
+
+  this.grilla = [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null]
+  ];
   }
 
   intentarGanar(bando) {
@@ -185,15 +194,17 @@ export class TatetiComponent implements OnInit {
     let ganaMaquina = this.juegaLaMaquina();
     //resultado
     if (ganaMaquina) {
-      alert('gana la maquina');
+      this.alert.message = 'GANA LA MAQUINA';
+      this.alert.type = 'danger';
+      //guardar resultado
+      this.firebaseService.saveResult('TATETI', false);
+      this.gameOver = true;
     }
     else if(this.esEmpate()) {
-      alert('empate!');
+      this.alert.message = 'EMPATE';
+      this.alert.type = 'default';   
+      this.gameOver = true;   
     }
-
-
-
-
   }
 
   esEmpate() {

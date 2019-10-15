@@ -3,10 +3,11 @@
 -onAuthStateChanged queda escuchando y updatea resultados
 
 *mejoras funcionales (LUNES)
--ppt
+-ppt(no ocultar marcador)
 
 *estetica (LUNES)
 -listado (pipe etc)
+-el nav deberia estar siempre
 -login
 -registro
 -principal

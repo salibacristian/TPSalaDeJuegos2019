@@ -1,3 +1,4 @@
+<ngb-alert *ngIf="gameOver" [type]="alert.type" [dismissible]="true" (close)="ngOnInit()">{{ alert.message }}</ngb-alert>
 <table class="tabla">
     <tr *ngFor="let fila of grilla; let i = index" [attr.data-index]="i" [ngClass]="{'fila': i > 0}">
         <td *ngFor="let columna of fila; let j = index" [attr.data-index]="j" [ngClass]="{'columna': j > 0}"
