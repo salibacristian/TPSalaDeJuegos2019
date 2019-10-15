@@ -17,31 +17,51 @@ export class MemotestComponent implements OnInit {
   faHippo = faHippo;
   faDragon = faDragon;
   faCircle = faCircle;
-  grilla = [
-    [
+  grilla = [[]];
+  // grilla = [
+  //   [
+  //     { iconSrc: 'faCat', seleccionada: false },
+  //     { iconSrc: 'faCrow', seleccionada: false },
+  //     { iconSrc: 'faDog', seleccionada: false },
+  //     { iconSrc: 'faFish', seleccionada: false }
+  //   ],
+  //   [
+  //     { iconSrc: 'faHorseHead', seleccionada: false },
+  //     { iconSrc: 'faSpider', seleccionada: false },
+  //     { iconSrc: 'faHippo', seleccionada: false },
+  //     { iconSrc: 'faDragon', seleccionada: false }
+  //   ],
+  //   [
+  //     { iconSrc: 'faCat', seleccionada: false },
+  //     { iconSrc: 'faCrow', seleccionada: false },
+  //     { iconSrc: 'faDog', seleccionada: false },
+  //     { iconSrc: 'faFish', seleccionada: false }
+  //   ],
+  //   [
+  //     { iconSrc: 'faHorseHead', seleccionada: false },
+  //     { iconSrc: 'faSpider', seleccionada: false },
+  //     { iconSrc: 'faHippo', seleccionada: false },
+  //     { iconSrc: 'faDragon', seleccionada: false }
+  //   ]
+  // ];
+
+  elementos = [    
       { iconSrc: 'faCat', seleccionada: false },
       { iconSrc: 'faCrow', seleccionada: false },
       { iconSrc: 'faDog', seleccionada: false },
-      { iconSrc: 'faFish', seleccionada: false }
-    ],
-    [
+      { iconSrc: 'faFish', seleccionada: false },  
       { iconSrc: 'faHorseHead', seleccionada: false },
       { iconSrc: 'faSpider', seleccionada: false },
       { iconSrc: 'faHippo', seleccionada: false },
-      { iconSrc: 'faDragon', seleccionada: false }
-    ],
-    [
+      { iconSrc: 'faDragon', seleccionada: false },   
       { iconSrc: 'faCat', seleccionada: false },
       { iconSrc: 'faCrow', seleccionada: false },
       { iconSrc: 'faDog', seleccionada: false },
-      { iconSrc: 'faFish', seleccionada: false }
-    ],
-    [
+      { iconSrc: 'faFish', seleccionada: false },
       { iconSrc: 'faHorseHead', seleccionada: false },
       { iconSrc: 'faSpider', seleccionada: false },
       { iconSrc: 'faHippo', seleccionada: false },
-      { iconSrc: 'faDragon', seleccionada: false }
-    ]
+      { iconSrc: 'faDragon', seleccionada: false }    
   ];
 
   pares = [];
@@ -49,7 +69,25 @@ export class MemotestComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.iniciarGrilla();
   }
+
+  iniciarGrilla() {
+  //desordeno
+      this.elementos = this.elementos
+        .sort(function () { return Math.random() - 0.5 });
+        //inserto elementos
+        let count = 0;
+      for (let i = 0; i < 4; i++) { 
+        this.grilla[i] = [];      
+         for (let j = 0; j < 4; j++) {            
+            this.grilla[i][j] = this.elementos[count];
+            count++;
+         }        
+      } 
+
+  }
+
 
   elegirCelda(celda) {
     if (celda.seleccionada)
