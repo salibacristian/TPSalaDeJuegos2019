@@ -1,8 +1,12 @@
 
-*resultados (LUNES)
- puntos / intentos 
-
+*bugs
+-onAuthStateChanged queda escuchando y updatea resultados
 
 *mejoras funcionales (LUNES)
+-ppt
 
 *estetica (LUNES)
+-listado (pipe etc)
+-login
+-registro
+-principal

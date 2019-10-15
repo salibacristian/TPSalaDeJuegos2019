@@ -143,4 +143,10 @@ export class FirebaseService {
     // } 
   }
 
+  async getResultados() {
+    // return await db.collection("usuarios").get();
+    let resultados = await db.collection('resultados').get();
+    return resultados;
+
+  }
 }

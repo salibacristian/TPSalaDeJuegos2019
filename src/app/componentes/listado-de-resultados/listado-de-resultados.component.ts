@@ -12,9 +12,28 @@ export class ListadoDeResultadosComponent implements OnInit {
   constructor(private firebaseService: FirebaseService) {
    }
 
-  ngOnInit() {
-    //poner un loading e ir a buscar los resultados
-    // this.firebaseService.getUsers();
+   listado;
+   ngOnInit() {
+    this.TraerTodos();
   }
 
+  async TraerTodos(){
+    var rtdos  = await this.firebaseService.getResultados();
+    var usrs  = await this.firebaseService.getUsers();
+     this.listado = rtdos.docs.map(function(x){
+        return x.data();
+      });
+      var usuarios = usrs.docs.map(function(x){
+        return x.data();
+      });
+      
+      this.listado.forEach(rtdo => {
+        let userResult = usuarios.find(usr => {
+          return usr.id === rtdo.usuarioId;
+        });
+        rtdo.usuario = userResult.nombre;
+      });
+
+    
+  }
 }
