@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../../servicios/firebase.service';
 
 @Component({
   selector: 'app-anagrama',
@@ -15,6 +16,10 @@ export class AnagramaComponent implements OnInit {
     { letraElegida: '', letraCorrecta: 'r' }
   ];
   letras = [];
+  alert = {message:'',type:'', action: ''};
+  showAlert = false;
+
+  constructor(private firebaseService: FirebaseService){}
 
   desordenarPalabra() {
 
@@ -43,7 +48,6 @@ export class AnagramaComponent implements OnInit {
     return gana;
   }
 
-  constructor() { }
 
   ngOnInit() {
     this.desordenarPalabra();
@@ -69,7 +73,32 @@ export class AnagramaComponent implements OnInit {
     }
 
     if (this.gana()) {
-      alert('GANASTE!');//TODO anotar puntos y traer la siguiente palabra
+      this.alert.message = 'Bien hecho!';
+      this.alert.type = 'success';
+      this.alert.action = 'continuar';
+      this.firebaseService.saveResult('ANAGRAMA', true);
+      this.showAlert = true;
+    }
+    else if(!this.palabra.some(function (item) {
+      return item.letraElegida == '';
+    })){
+      this.alert.message = 'Intentalo de nuevo';
+      this.alert.type = 'danger';
+      this.alert.action = 'reintentar';
+      this.firebaseService.saveResult('ANAGRAMA', false);
+      this.showAlert = true;
+
+    }
+
+  }
+
+  continue(){
+    this.showAlert = false;
+    if(this.alert.action == 'continuar'){
+      //vacio
+    }
+    else{
+      //siguiente palabra
     }
 
   }

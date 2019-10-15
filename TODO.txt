@@ -1,11 +1,12 @@
-
 *bugs
 -onAuthStateChanged queda escuchando y updatea resultados
 
-*mejoras funcionales (LUNES)
+*mejoras funcionales 
 -ppt(no ocultar marcador)
 
-*estetica (LUNES)
+
+*estetica 
+-anagrama!
 -listado (pipe etc)
 -el nav deberia estar siempre
 -login
