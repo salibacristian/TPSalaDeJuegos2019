@@ -8,23 +8,122 @@ import { FirebaseService } from '../../servicios/firebase.service';
 })
 export class AnagramaComponent implements OnInit {
 
-  palabra = [
-    { letraElegida: '', letraCorrecta: 'j' },
-    { letraElegida: '', letraCorrecta: 'u' },
-    { letraElegida: '', letraCorrecta: 'g' },
-    { letraElegida: '', letraCorrecta: 'a' },
-    { letraElegida: '', letraCorrecta: 'r' }
+  palabras = [
+    [//jugar
+      { letraElegida: '', letraCorrecta: 'j' },
+      { letraElegida: '', letraCorrecta: 'u' },
+      { letraElegida: '', letraCorrecta: 'g' },
+      { letraElegida: '', letraCorrecta: 'a' },
+      { letraElegida: '', letraCorrecta: 'r' }
+    ],
+    [//ganar
+      { letraElegida: '', letraCorrecta: 'g' },
+      { letraElegida: '', letraCorrecta: 'a' },
+      { letraElegida: '', letraCorrecta: 'n' },
+      { letraElegida: '', letraCorrecta: 'a' },
+      { letraElegida: '', letraCorrecta: 'r' }
+    ],
+    [//perder
+      { letraElegida: '', letraCorrecta: 'p' },
+      { letraElegida: '', letraCorrecta: 'e' },
+      { letraElegida: '', letraCorrecta: 'r' },
+      { letraElegida: '', letraCorrecta: 'd' },
+      { letraElegida: '', letraCorrecta: 'e' },
+      { letraElegida: '', letraCorrecta: 'r' }
+    ],
+    [//resolver
+      { letraElegida: '', letraCorrecta: 'r' },
+      { letraElegida: '', letraCorrecta: 'e' },
+      { letraElegida: '', letraCorrecta: 's' },
+      { letraElegida: '', letraCorrecta: 'o' },
+      { letraElegida: '', letraCorrecta: 'l' },
+      { letraElegida: '', letraCorrecta: 'v' },
+      { letraElegida: '', letraCorrecta: 'e' },
+      { letraElegida: '', letraCorrecta: 'r' }
+    ],
+    [//palabra
+      { letraElegida: '', letraCorrecta: 'p' },
+      { letraElegida: '', letraCorrecta: 'a' },
+      { letraElegida: '', letraCorrecta: 'l' },
+      { letraElegida: '', letraCorrecta: 'a' },
+      { letraElegida: '', letraCorrecta: 'b' },
+      { letraElegida: '', letraCorrecta: 'r' },
+      { letraElegida: '', letraCorrecta: 'a' }
+    ],
+    [//ordenar
+      { letraElegida: '', letraCorrecta: 'o' },
+      { letraElegida: '', letraCorrecta: 'r' },
+      { letraElegida: '', letraCorrecta: 'd' },
+      { letraElegida: '', letraCorrecta: 'e' },
+      { letraElegida: '', letraCorrecta: 'n' },
+      { letraElegida: '', letraCorrecta: 'a' },
+      { letraElegida: '', letraCorrecta: 'r' }
+    ],
+    [ //desafio
+      { letraElegida: '', letraCorrecta: 'd' },
+      { letraElegida: '', letraCorrecta: 'e' },
+      { letraElegida: '', letraCorrecta: 's' },
+      { letraElegida: '', letraCorrecta: 'a' },
+      { letraElegida: '', letraCorrecta: 'f' },
+      { letraElegida: '', letraCorrecta: 'i' },
+      { letraElegida: '', letraCorrecta: 'o' }
+
+    ],
+    [ //diversion
+      { letraElegida: '', letraCorrecta: 'd' },
+      { letraElegida: '', letraCorrecta: 'i' },
+      { letraElegida: '', letraCorrecta: 'v' },
+      { letraElegida: '', letraCorrecta: 'e' },
+      { letraElegida: '', letraCorrecta: 'r' },
+      { letraElegida: '', letraCorrecta: 's' },
+      { letraElegida: '', letraCorrecta: 'i' },
+      { letraElegida: '', letraCorrecta: 'o' },
+      { letraElegida: '', letraCorrecta: 'n' }
+    ],
+    [ //concentracion
+      { letraElegida: '', letraCorrecta: 'c' },
+      { letraElegida: '', letraCorrecta: 'o' },
+      { letraElegida: '', letraCorrecta: 'n' },
+      { letraElegida: '', letraCorrecta: 'c' },
+      { letraElegida: '', letraCorrecta: 'e' },
+      { letraElegida: '', letraCorrecta: 'n' },
+      { letraElegida: '', letraCorrecta: 't' },
+      { letraElegida: '', letraCorrecta: 'r' },
+      { letraElegida: '', letraCorrecta: 'a' },
+      { letraElegida: '', letraCorrecta: 'c' },
+      { letraElegida: '', letraCorrecta: 'i' },
+      { letraElegida: '', letraCorrecta: 'o' },
+      { letraElegida: '', letraCorrecta: 'n' }
+    ],
+    [//felicitacion
+      { letraElegida: '', letraCorrecta: 'f' },
+      { letraElegida: '', letraCorrecta: 'e' },
+      { letraElegida: '', letraCorrecta: 'l' },
+      { letraElegida: '', letraCorrecta: 'i' },
+      { letraElegida: '', letraCorrecta: 'c' },
+      { letraElegida: '', letraCorrecta: 'i' },
+      { letraElegida: '', letraCorrecta: 't' },
+      { letraElegida: '', letraCorrecta: 'a' },
+      { letraElegida: '', letraCorrecta: 'c' },
+      { letraElegida: '', letraCorrecta: 'i' },
+      { letraElegida: '', letraCorrecta: 'o' },
+      { letraElegida: '', letraCorrecta: 'n' }
+    ]
   ];
+
+  palabra = [];
+  nivel = 0;
+
   letras = [];
-  alert = {message:'',type:'', action: ''};
+  alert = { message: '', type: '', action: '' };
   showAlert = false;
 
-  constructor(private firebaseService: FirebaseService){}
+  constructor(private firebaseService: FirebaseService) { }
 
+  //desordena a this.palabra
   desordenarPalabra() {
 
     do {
-      console.log('entro');
       this.letras = this.palabra
         .map(function (item) { return item.letraCorrecta })
         .sort(function () { return Math.random() - 0.5 });
@@ -33,6 +132,7 @@ export class AnagramaComponent implements OnInit {
 
   }
 
+  //true si this.letras es como this.palabra con las letras correctas
   tieneMismoOrden() {
 
     for (let index = 0; index < this.letras.length; index++) {
@@ -50,9 +150,11 @@ export class AnagramaComponent implements OnInit {
 
 
   ngOnInit() {
+    this.palabra = this.palabras[0];
     this.desordenarPalabra();
   }
 
+  //true si gano
   gana() {
     return !this.palabra.some(function (item) {
       return item.letraCorrecta != item.letraElegida;
@@ -79,9 +181,9 @@ export class AnagramaComponent implements OnInit {
       this.firebaseService.saveResult('ANAGRAMA', true);
       this.showAlert = true;
     }
-    else if(!this.palabra.some(function (item) {
+    else if (!this.palabra.some(function (item) {
       return item.letraElegida == '';
-    })){
+    })) {
       this.alert.message = 'Intentalo de nuevo';
       this.alert.type = 'danger';
       this.alert.action = 'reintentar';
@@ -92,14 +194,15 @@ export class AnagramaComponent implements OnInit {
 
   }
 
-  continue(){
+  continue() {
     this.showAlert = false;
-    if(this.alert.action == 'continuar'){
-      //vacio
-    }
-    else{
+    if (this.alert.action == 'continuar') {
       //siguiente palabra
+      this.nivel++;
+      this.palabra = this.palabras[this.nivel];
+      this.desordenarPalabra();
     }
+
 
   }
 
