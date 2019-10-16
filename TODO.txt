@@ -1,5 +1,3 @@
-*bugs
--onAuthStateChanged queda escuchando y updatea resultados
 
 *mejoras funcionales 
 -ppt(no ocultar marcador)

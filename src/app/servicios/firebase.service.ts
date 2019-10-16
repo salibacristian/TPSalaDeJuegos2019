@@ -32,7 +32,9 @@ export class FirebaseService {
   }
 
   async getCurrentUser() {
-
+    firebase.auth().onAuthStateChanged(async user => {
+      this.user = user;
+    });
   }
 
 
@@ -87,7 +89,12 @@ export class FirebaseService {
 
   logout() {
     localStorage.removeItem('token');
-  }
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+    }).catch(function(error) {
+      // An error happened.
+    });
+  } 
 
   addUser(user: Usuario) {
     var db = firebase.firestore();
@@ -104,19 +111,19 @@ export class FirebaseService {
       });
   }
 
-  async saveResult(juego, gano) {
-    firebase.auth().onAuthStateChanged(async user => {
+  async saveResult(juego, gano) {   
+      await this.getCurrentUser();
       var db = firebase.firestore();
       let resultados = db.collection('resultados')
       let activeRef = await resultados
-        .where('usuarioId', '==', user.uid)
+        .where('usuarioId', '==', this.user.uid)
         .where('juego', '==', juego)
         .get();
 
       if (activeRef.empty) {
         //add
         db.collection("resultados").add({
-          usuarioId: user.uid,
+          usuarioId: this.user.uid,
           juego: juego,
           victorias: gano ? 1 : 0,
           derrotas: gano ? 0 : 1
@@ -131,7 +138,6 @@ export class FirebaseService {
             .update({ victorias: victorias, derrotas: derrotas });
         });
       }
-    });
   }
 
   async getUsers() {
