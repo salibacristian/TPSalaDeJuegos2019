@@ -1,8 +1,4 @@
 
-*mejoras funcionales 
--ppt(no ocultar marcador)
-
-
 *estetica 
 -anagrama!
 -listado (pipe etc)

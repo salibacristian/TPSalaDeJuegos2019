@@ -1,11 +1,12 @@
+<div class="content">
 <ngb-alert *ngIf="showAlert" [type]="alert.type" >{{ alert.message }}</ngb-alert>
 <div class="row">
   <div class="col-3"></div>
   <div class="col-6">
-    <table>
+    <table  style="margin: auto;">
       <tr>
         <td *ngFor="let item of palabra">
-          {{item.letraElegida}}
+          <h1 style="text-align: center;">{{item.letraElegida | uppercase }}</h1>
         </td>
       </tr>
     </table>
@@ -13,17 +14,18 @@
 </div>
 <div class="row">
     <div class="col-3"></div>
-  <div class="col-6">
-    <div class="btn-group btn-group-toggle">
-      <label class="btn-primary" ngbButtonLabel *ngFor="let letra of letras">
-        <input type="checkbox" ngbButton (change)="elegirLetra(letra,$event.target.checked)"> {{letra}}
+  <div class="col-6" style="text-align: center;">
+    <div class="btn-group btn-group-toggle btnOpcionLetra">
+      <label class="btn-primary btnOpcionLetra" ngbButtonLabel *ngFor="let letra of letras">
+        <input type="checkbox" ngbButton (change)="elegirLetra(letra,$event.target.checked)"> {{letra | uppercase}}
       </label>
     </div>
   </div>
 </div>
 <div *ngIf="showAlert" class="row">
     <div class="col-3"></div>
-  <div class="col-6">
+  <div class="col-6" style="text-align: center;">
       <button mat-raised-button color="primary" (click)="continue()">{{alert.action}}</button>
   </div>
+</div>
 </div>
