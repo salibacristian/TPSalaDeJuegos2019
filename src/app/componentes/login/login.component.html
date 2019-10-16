@@ -1,20 +1,23 @@
- <div class="container" >
+<div class="container">
   <div class="jumbotron" style="padding:50px;">
-    <form action="return true;">
+    <form>
       <div class="imgcontainer">
-        <img src="./assets/imagenes/login.png" alt="Avatar" class="avatar" max-width="104" >
+        <img src="./assets/imagenes/login.png" alt="Avatar" class="avatar" max-width="104">
       </div>
       <div class="container">
-        <label><b>Usuario</b></label>
-        <input type="text" placeholder="Usuario"  [(ngModel)]="usuario"  name="uname" required>
-        <label><b>Clave</b></label>
-        <input type="password" placeholder="Clave"  [(ngModel)]="clave" name="psw" required>            
+
+        <mat-form-field class="example-full-width">
+          <input matInput type="email" placeholder="USUARIO" [(ngModel)]="usuario" name="user">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput type="password" placeholder="CLAVE" [(ngModel)]="clave" name = "password">
+        </mat-form-field>
       </div>
-      <div class="container" style="background-color:#f1f1f1">
-        <button (click)="Entrar()" >Ingresar</button> 
-        <button type="button" >Cancelar</button>
-      </div>     
-      <a  routerLink="/Registro" >Registrarse</a>
+      <div>
+          <button class="btnFooter" mat-raised-button color="primary"  (click)="Entrar()">Ingresar</button>
+          <button class="btnFooter" mat-stroked-button color="primary" routerLink="/Registro">Registrarse</button>
+      </div>
     </form>
   </div>
 </div>

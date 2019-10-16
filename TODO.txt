@@ -1,8 +1,6 @@
 
 *estetica 
--anagrama!
--listado (pipe etc)
--el nav deberia estar siempre
+
 -login
 -registro
--principal
+-cabecera 
