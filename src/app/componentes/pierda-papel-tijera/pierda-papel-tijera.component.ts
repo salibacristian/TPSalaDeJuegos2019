@@ -39,7 +39,7 @@ export class PierdaPapelTijeraComponent implements OnInit {
 
   elegir(opcion) {
     this.eleccion = opcion;
-    this.eleccionMaquina = null;
+    // this.eleccionMaquina = null;
   }
 
   jugar() {
