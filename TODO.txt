@@ -1,6 +1,0 @@
-
-*estetica 
-
--login
--registro
--cabecera 

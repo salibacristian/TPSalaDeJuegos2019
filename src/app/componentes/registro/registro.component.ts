@@ -12,7 +12,7 @@ export class RegistroComponent implements OnInit {
 
   constructor( private firebaseService: FirebaseService) { }
 
-  user: Usuario = new Usuario('','','','');
+  user: Usuario = new Usuario('','','','',0,'');
 
   ngOnInit() {
   }

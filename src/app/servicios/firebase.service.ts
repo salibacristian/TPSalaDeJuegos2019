@@ -101,6 +101,8 @@ export class FirebaseService {
     db.collection("usuarios").add({
       nombre: user.nombre,
       email: user.email,
+      edad: user.edad,
+      sexo: user.sexo,
       id: user.id
     })
       .then(function (docRef) {

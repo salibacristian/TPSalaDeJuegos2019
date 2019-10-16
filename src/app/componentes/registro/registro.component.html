@@ -1,13 +1,23 @@
-<body>
-  
-        <label><b>Email</b></label>
-        <input type="email" [(ngModel)] = "user.email"  placeholder="Ingresa tu correo" name="email" required>
-        <label><b>Nombre</b></label>
-        <input type="text" [(ngModel)] = "user.nombre"  placeholder="Ingresa tu nombre" name="name" required>
-        <label><b>Clave</b></label>
-        <input type="password" [(ngModel)] = "user.clave" placeholder="Aca la clave" name="psw" required>
-        <button type="button">Cancelar</button>
-        <button (click) = "Register()">Registrarme</button>
+<div class="example-container">
+        <mat-form-field>
+                <input type="email" matInput placeholder="Email" [(ngModel)]="user.email" name="email">
+        </mat-form-field>
+        <mat-form-field>
+                <input type="text" matInput placeholder="Nombre" [(ngModel)]="user.nombre" name="nombre">
+        </mat-form-field>
 
-    
-</body>
+        <mat-form-field>
+                <input type="password" matInput placeholder="Clave" [(ngModel)]="user.clave" name="clave">
+        </mat-form-field>
+        <mat-form-field>
+                <input type="number" matInput placeholder="Edad" [(ngModel)]="user.edad" name="edad">
+        </mat-form-field>
+
+        <mat-form-field>
+                <mat-select placeholder="Sexo" [(ngModel)]="user.sexo">
+                        <mat-option value="hombre">hombre</mat-option>
+                        <mat-option value="mujer">mujer</mat-option>
+                </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="Register()">Registrarme</button>
+</div>
